@@ -327,6 +327,9 @@ namespace nvrhi::vulkan {
         // tracks the list of command buffers in flight on this queue
         std::list<TrackedCommandBufferPtr> m_CommandBuffersInFlight;
         std::list<TrackedCommandBufferPtr> m_CommandBuffersPool;
+
+    public:
+        std::mutex& GetVulkanQueueMutexInternal() { return m_Mutex; }
     };
 
     class MemoryResource {
