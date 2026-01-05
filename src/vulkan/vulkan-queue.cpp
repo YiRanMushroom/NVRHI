@@ -169,6 +169,8 @@ namespace nvrhi::vulkan
             .setPSignalSemaphores(m_SignalSemaphores.data());
 
         try {
+            // lock queue before submit
+            std::lock_guard lockGuard(m_Mutex);
             m_Queue.submit(submitInfo, signalFence);
         }
         catch (vk::DeviceLostError&)
