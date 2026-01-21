@@ -42,6 +42,15 @@ namespace nvrhi::vulkan
         query->commandListID = m_Queues[uint32_t(queue)]->getLastSubmittedID();
     }
 
+    void Device::setEventQuery(IEventQuery *query, CommandQueue queue, uint64_t submissionID) {
+        EventQuery* eventQuery = checked_cast<EventQuery*>(query);
+
+        assert(eventQuery->commandListID == 0);
+
+        eventQuery->queue = queue;
+        eventQuery->commandListID = submissionID;
+    }
+
     bool Device::pollEventQuery(IEventQuery* _query)
     {
         EventQuery* query = checked_cast<EventQuery*>(_query);

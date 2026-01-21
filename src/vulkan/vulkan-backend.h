@@ -1183,6 +1183,8 @@ namespace nvrhi::vulkan {
 
         void setEventQuery(IEventQuery *query, CommandQueue queue) override;
 
+        void setEventQuery(IEventQuery *query, CommandQueue queue, uint64_t submissionID) override;
+
         bool pollEventQuery(IEventQuery *query) override;
 
         void waitEventQuery(IEventQuery *query) override;

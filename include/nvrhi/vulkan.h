@@ -46,6 +46,8 @@ namespace nvrhi::vulkan
 
         virtual uint64_t executeCommandListsSignalFence(ICommandList* const* pCommandLists, size_t numCommandLists, VkFence signalFence = nullptr, CommandQueue executionQueue = CommandQueue::Graphics) = 0;
         uint64_t executeCommandListSignalFence(ICommandList* pCommandList, VkFence signalFence = nullptr, CommandQueue executionQueue = CommandQueue::Graphics);
+
+        virtual void setEventQuery(IEventQuery* query, CommandQueue queue, uint64_t commandListID) = 0;
     };
 
     typedef RefCountPtr<IDevice> DeviceHandle;
