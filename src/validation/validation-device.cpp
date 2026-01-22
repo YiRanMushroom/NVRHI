@@ -639,6 +639,10 @@ namespace nvrhi::validation
         m_Device->resetEventQuery(query);
     }
 
+    void DeviceWrapper::setEventQuery(IEventQuery *query, CommandQueue queue, uint64_t commandListID) {
+        m_Device->setEventQuery(query, queue, commandListID);
+    }
+
     TimerQueryHandle DeviceWrapper::createTimerQuery()
     {
         return m_Device->createTimerQuery();
@@ -2340,6 +2344,10 @@ namespace nvrhi::validation
     AftermathCrashDumpHelper& DeviceWrapper::getAftermathCrashDumpHelper()
     {
         return m_Device->getAftermathCrashDumpHelper();
+    }
+
+    std::any DeviceWrapper::getBackendSpecificImplementationObjectGeneric(std::string_view name) {
+        return m_Device->getBackendSpecificImplementationObjectGeneric(name);
     }
 
     void Range::add(uint32_t item)

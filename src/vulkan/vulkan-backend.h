@@ -1120,6 +1120,7 @@ namespace nvrhi::vulkan {
 
         Object getNativeObject(ObjectType objectType) override;
 
+        virtual std::any getBackendSpecificImplementationObjectGeneric(std::string_view name) override;
 
         // IDevice implementation
 

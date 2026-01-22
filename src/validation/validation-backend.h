@@ -345,6 +345,8 @@ namespace nvrhi::validation
         void waitEventQuery(IEventQuery* query) override;
         void resetEventQuery(IEventQuery* query) override;
 
+        void setEventQuery(IEventQuery *query, CommandQueue queue, uint64_t commandListID) override;
+
         // timer queries
         TimerQueryHandle createTimerQuery() override;
         bool pollTimerQuery(ITimerQuery* query) override;
@@ -395,6 +397,9 @@ namespace nvrhi::validation
         IMessageCallback* getMessageCallback() override;
         bool isAftermathEnabled() override;
         AftermathCrashDumpHelper& getAftermathCrashDumpHelper() override;
+
+    public:
+        std::any getBackendSpecificImplementationObjectGeneric(std::string_view name) override;
     };
 
 } // namespace nvrhi::validation
