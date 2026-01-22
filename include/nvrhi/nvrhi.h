@@ -5168,14 +5168,16 @@ namespace nvrhi {
         }
 
     public:
-        virtual std::any getBackendSpecificImplementationObjectGeneric(std::string_view name) = 0;
+        virtual std::any getBackendSpecificImplementationObjectUnchecked(std::string_view name) = 0;
 
     public:
         template<typename T>
-        std::optional<T> getBackendSpecificImplementationObject(std::string_view name) {
-            if (auto object = getBackendSpecificImplementationObjectGeneric(name); object.type() == typeid(T)) {
+        std::optional<T> getBackendSpecificImplementationObjectGeneric(std::string_view name) {
+            if (auto object = getBackendSpecificImplementationObjectUnchecked(name); object.type() == typeid(T)) {
                 return std::any_cast<T>(object);
             }
+
+            return std::nullopt;
         }
     };
 

@@ -399,7 +399,7 @@ namespace nvrhi::validation
         AftermathCrashDumpHelper& getAftermathCrashDumpHelper() override;
 
     public:
-        std::any getBackendSpecificImplementationObjectGeneric(std::string_view name) override;
+        std::any getBackendSpecificImplementationObjectUnchecked(std::string_view name) override;
     };
 
 } // namespace nvrhi::validation

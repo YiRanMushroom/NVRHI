@@ -2346,8 +2346,8 @@ namespace nvrhi::validation
         return m_Device->getAftermathCrashDumpHelper();
     }
 
-    std::any DeviceWrapper::getBackendSpecificImplementationObjectGeneric(std::string_view name) {
-        return m_Device->getBackendSpecificImplementationObjectGeneric(name);
+    std::any DeviceWrapper::getBackendSpecificImplementationObjectUnchecked(std::string_view name) {
+        return m_Device->getBackendSpecificImplementationObjectUnchecked(name);
     }
 
     void Range::add(uint32_t item)

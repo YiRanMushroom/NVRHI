@@ -300,7 +300,7 @@ namespace nvrhi::vulkan {
         }
     }
 
-    std::any Device::getBackendSpecificImplementationObjectGeneric(std::string_view name) {
+    std::any Device::getBackendSpecificImplementationObjectUnchecked(std::string_view name) {
         if (name == "VKGraphicsQueueSubmissionMutexPtr")
             return std::make_any<std::mutex *>(&getQueue(CommandQueue::Graphics)->GetVulkanQueueMutexInternal());
 

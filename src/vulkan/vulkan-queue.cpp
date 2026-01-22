@@ -170,7 +170,7 @@ namespace nvrhi::vulkan
 
         try {
             // lock queue before submit
-            std::lock_guard lockGuard(m_Mutex);
+            // std::lock_guard lockGuard(m_Mutex);
             m_Queue.submit(submitInfo, signalFence);
         }
         catch (vk::DeviceLostError&)
